@@ -13,7 +13,21 @@ for (var row = 0; row < A.length; row++) {
   }
 
   document.write('<br>');
-}
+} // Прошлый вариант со звездочкой 
+
+/*for (let row=0; row<A.length; row++){
+    Sum = 0;      
+    for (let col=0; col<A[row].length; col++) {
+        Sum += A[col][row]; //Сумма колонок 
+    }
+
+    for (let k=0; k<A[row].length; k++) {  //двумерные массивы это боль)))
+        if (Sum < 0 ) {
+            A[k][row]='*'; 
+        }
+    }
+}*/
+
 
 for (var _row = 0; _row < A.length; _row++) {
   Sum = 0;
@@ -22,10 +36,9 @@ for (var _row = 0; _row < A.length; _row++) {
     Sum += A[_col][_row]; //Сумма колонок 
   }
 
-  for (var k = 0; k < A[_row].length; k++) {
-    //двумерные массивы это боль)))
-    if (Sum < 0) {
-      A[k][_row] = '*';
+  if (Sum < 0) {
+    for (var k = A.length - 1; k >= 0; k--) {
+      A[k].splice(_row, 1);
     }
   }
 }

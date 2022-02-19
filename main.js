@@ -12,8 +12,9 @@ for (let row=0; row<A.length; row++) {
         document.write('<br>');
 }
 
+// Прошлый вариант со звездочкой 
 
-for (let row=0; row<A.length; row++){
+/*for (let row=0; row<A.length; row++){
     Sum = 0;      
     for (let col=0; col<A[row].length; col++) {
         Sum += A[col][row]; //Сумма колонок 
@@ -24,7 +25,22 @@ for (let row=0; row<A.length; row++){
             A[k][row]='*'; 
         }
     }
+}*/
+
+
+for (let row=0; row<A.length; row++){
+    Sum = 0;      
+    for (let col=0; col<A[row].length; col++) {
+        Sum += A[col][row]; //Сумма колонок 
+    }
+
+    if (Sum < 0 ) {
+        for (let k=A.length-1; k>=0; k--) {  
+                A[k].splice(row, 1); 
+        }
+    }
 }
+
 
 console.log(A); 
 
